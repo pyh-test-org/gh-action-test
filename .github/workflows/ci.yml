@@ -26,6 +26,6 @@ jobs:
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
-      wtih:
+      with:
         name: build-artifact
         path: ./demo/build/libs
