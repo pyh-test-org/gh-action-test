@@ -17,12 +17,7 @@ jobs:
         java-version: 11
     
     - uses: actions/checkout@v3
-    - run: ls -al
 
-    - name: gradle init
-      run: ./demo/gradlew init
-    - run: ls -al
-
-    - name: gradle build
-      run: ./demo/gradlew build
+    - run: cd demo
+    - run: ./demo/gradlew build
     - run: ls -al demo
