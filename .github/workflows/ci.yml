@@ -15,10 +15,9 @@ jobs:
       with:
         distribution: temurin
         java-version: 11
-    
-    - uses: actions/checkout@v3
 
-    - run: cd demo
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+
+    - run: ./demo/gradlew build
     - run: ls -al
-    - run: gradlew build
-    - run: ls -al demo
