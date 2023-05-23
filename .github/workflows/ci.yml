@@ -24,4 +24,4 @@ jobs:
 
     - name: gradle build
       run: ./demo/gradlew build
-      run: ls -al
+    - run: ls -al
