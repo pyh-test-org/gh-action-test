@@ -29,3 +29,16 @@ jobs:
       with:
         name: build-artifact
         path: ./demo/build/libs
+
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: my-artifact
+        path: download
+    - run: ls -ld download
+
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: download
