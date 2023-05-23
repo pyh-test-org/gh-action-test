@@ -23,3 +23,9 @@ jobs:
       run: ./gradlew clean build
       working-directory: demo
 
+    - name: Upload artifact
+      run: ls -al ./demo/build/libs
+      uses: actions/upload-artifact@v3
+      wtih:
+        name: build-artifact
+        path: ./demo/build/libs
