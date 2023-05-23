@@ -16,5 +16,8 @@ jobs:
         distribution: temurin
         java-version: 11
     
+    - name: checkout
+      name: actions/checkout@v3
+
     - name: gradle init
       run: ./demo/gradlew build
