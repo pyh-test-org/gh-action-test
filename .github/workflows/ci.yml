@@ -22,9 +22,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew clean build
       working-directory: demo
+    - run: ls -al ./demo/build/libs
 
     - name: Upload artifact
-      run: ls -al ./demo/build/libs
       uses: actions/upload-artifact@v3
       wtih:
         name: build-artifact
