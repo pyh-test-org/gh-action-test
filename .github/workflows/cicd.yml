@@ -43,5 +43,5 @@ jobs:
       with:
         name: build-artifact
         path: ./
-    - run: ls -l
     - run: echo $PWD
+    - run: ls -l $HOME/../ ; echo $PWD
