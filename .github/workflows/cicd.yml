@@ -28,7 +28,9 @@ jobs:
     - run: ls -al ./demo/build/libs
 
     - name: zip artifact
-      run: zip -r -q artifact.zip ./demo/build/libs/*
+      run: |
+        cd ./demo/build/libs
+        zip -r -q ../../../artifact.zip .
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
