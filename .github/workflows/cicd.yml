@@ -42,7 +42,4 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: build-artifact
-    - run: ls -ld
-    - run: echo $AWS_ACCESS_KEY
-    - run: echo $AWS_ACCESS_SECRET_KEY
-    - run: echo $AWS_DEFAULT_REGION
+        path: ./
