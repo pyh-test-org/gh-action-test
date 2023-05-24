@@ -16,6 +16,8 @@ jobs:
       AWS_DEFAULT_REGION: ap-northeast-2
 
     steps:
+    - run: ls -l ./
+
     - uses: actions/download-artifact@v3
       with:
         name: build-artifact
