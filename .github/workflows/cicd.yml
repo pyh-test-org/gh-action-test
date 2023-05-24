@@ -28,14 +28,13 @@ jobs:
     - run: ls -al ./demo/build/libs
 
     - name: zip artifact
-      run: zip -r -q ./demo/build/libs/artifact.zip ./demo/build/libs/*
+      run: zip -r -q artifact.zip ./demo/build/libs/*
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: build-artifact
-        path: artifact.zip
-        working-directory: ./demo/build/libs
+        path: ./artifact.zip
 
   deploy:
     runs-on: ubuntu-latest
