@@ -1,4 +1,4 @@
-name: Run Gradle
+name: cicd practice
 on:
   push:
     branches:
@@ -25,23 +25,28 @@ jobs:
       working-directory: demo
     - run: ls -al ./demo/build/libs
 
+    - name: zip artifact
+      run: zip -r -q ./demo/build/libs/artifact.zip ./demo/build/libs/*
+
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: build-artifact
-        path: ./demo/build/libs
+        path: ./demo/build/libs/artifact.zip
 
   deploy:
     runs-on: ubuntu-latest
+    
     env:
       AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
       AWS_ACCESS_SECRET_KEY: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
       AWS_DEFAULT_REGION: ap-northeast-2
+
     needs: build
     steps:
     - uses: actions/download-artifact@v3
       with:
         name: build-artifact
-        path: ./
-    - run: echo $PWD
-    - run: ls -l $HOME/../ ; echo $PWD
+    - run: ls -l
+    
+    # - run: aws s3 cp <아티팩트> <s3://bucket_name/s3_key/fle_name>
