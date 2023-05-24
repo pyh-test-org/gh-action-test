@@ -15,7 +15,6 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
       AWS_DEFAULT_REGION: ap-northeast-2
 
-    needs: build
     steps:
     - uses: actions/download-artifact@v3
       with:
