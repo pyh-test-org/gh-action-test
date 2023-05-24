@@ -1,5 +1,4 @@
 name: cicd practice
-on:
 
 jobs:
   build:
