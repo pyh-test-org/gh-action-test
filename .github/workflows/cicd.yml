@@ -9,9 +9,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v3
+
     - uses: actions/setup-java@v3
       with:
         distribution: temurin
@@ -49,4 +51,4 @@ jobs:
         name: build-artifact
     - run: ls -l
     
-    # - run: aws s3 cp <아티팩트> <s3://bucket_name/s3_key/fle_name>
+    - run: aws s3 cp artifact.zip s3://gh-action-s3-test/path1/artifact.zip # <s3://bucket_name/s3_key/fle_name>
