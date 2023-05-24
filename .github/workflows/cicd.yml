@@ -34,7 +34,8 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: build-artifact
-        path: ./demo/build/libs/artifact.zip
+        path: artifact.zip
+        working-directory: ./demo/build/libs
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,6 +50,6 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: build-artifact
-    - run: ls -l
     
-    - run: aws s3 cp artifact.zip s3://gh-action-s3-test/path1/artifact.zip # <s3://bucket_name/s3_key/fle_name>
+    - run: ls -l
+    - run: aws s3 cp artifact.zip s3://gh-action-s3-test/path1/artifact.zip
