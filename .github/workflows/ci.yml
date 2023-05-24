@@ -1,4 +1,4 @@
-name: cicd practice
+name: ci test
 on:
   workflow_dispatch:
 
@@ -32,20 +32,3 @@ jobs:
       with:
         name: build-artifact
         path: ./artifact.zip
-
-  # deploy:
-  #   runs-on: ubuntu-latest
-    
-  #   env:
-  #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-  #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
-  #     AWS_DEFAULT_REGION: ap-northeast-2
-
-  #   needs: build
-  #   steps:
-  #   - uses: actions/download-artifact@v3
-  #     with:
-  #       name: build-artifact
-    
-  #   - run: ls -l
-  #   - run: aws s3 cp artifact.zip s3://gh-action-s3-test/path1/artifact.zip
