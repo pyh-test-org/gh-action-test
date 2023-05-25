@@ -37,7 +37,7 @@ jobs:
   scp-deploy:
     needs: build
     uses: ./.github/workflows/s3-upload.yml
-    secret: inherit
+    secrets: inherit
 
   # s3-upload:
   #   needs: build
