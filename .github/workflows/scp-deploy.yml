@@ -17,11 +17,11 @@ jobs:
       with:
         name: build-artifact
     - run: ls -al
-    
+
     - uses: appleboy/scp-action@v0.1.4
       with:
         host: ${{ env.HOST }}
         username: ${{ env.USER_NAME }}
         key: ${{ secrets.SSH_KEY }}
-        source: "./demo/build/libs/*"
+        source: "artifact.zip"
         target: /home/ubuntu/
