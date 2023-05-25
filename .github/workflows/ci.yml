@@ -34,7 +34,12 @@ jobs:
         name: build-artifact
         path: ./artifact.zip
 
-  s3-upload:
+  scp-deploy:
     needs: build
     uses: ./.github/workflows/s3-upload.yml
-    secrets: inherit
+    secret: inherit
+
+  # s3-upload:
+  #   needs: build
+  #   uses: ./.github/workflows/s3-upload.yml
+  #   secrets: inherit

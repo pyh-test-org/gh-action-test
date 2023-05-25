@@ -1,0 +1,16 @@
+name: scp deploy
+
+on:
+  workflow_call:
+
+jobs:
+  develop:
+    runs-on: ubuntu-latest
+
+    env:
+      HOST: "ec2-54-180-128-3.ap-northeast-2.compute.amazonaws.com"
+      USER_NAME: "ubuntu"
+    
+    steps:
+      run: ssh -i ${{ secrets.SSH_KEY }} ${{ USER_NAME }}/${{ HOST }} echo test
+    
