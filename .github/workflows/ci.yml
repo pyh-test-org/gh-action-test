@@ -1,6 +1,6 @@
 name: ci test
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   build:
@@ -36,7 +36,7 @@ jobs:
 
   scp-deploy:
     needs: build
-    uses: ./.github/workflows/s3-upload.yml
+    uses: ./.github/workflows/scp-deploy.yml
     secrets: inherit
 
   # s3-upload:
