@@ -6,6 +6,10 @@ on:
 jobs:
   develop:
     runs-on: ubuntu-latest
+    environment:
+      name: s3-upload
+      # url: 
+
 
     steps:
     - name: Configure AWS credentials
