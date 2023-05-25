@@ -35,5 +35,4 @@ jobs:
 
   s3-upload:
     needs: build
-    steps:
-    - run: ls -l
+    uses: ./.github/workflows/cd.yml
