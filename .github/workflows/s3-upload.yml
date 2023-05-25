@@ -7,9 +7,7 @@ jobs:
   develop:
     runs-on: ubuntu-latest
     environment:
-      name: s3-uploa
-      # url: 
-
+      name: s3-upload
 
     steps:
     - name: Configure AWS credentials
