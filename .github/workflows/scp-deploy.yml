@@ -1,8 +1,8 @@
 name: scp deploy
 
 on:
-  push:
-  # workflow_call:
+  # push:
+  workflow_call:
 
 jobs:
   develop:
@@ -13,5 +13,10 @@ jobs:
       USER_NAME: "ubuntu"
     
     steps:
-    - run: echo $HOST; echo $USER_NAME
-    - run: ssh -i ${{ secrets.SSH_KEY }} $USER_NAME/$HOST echo test
+    - uses: appleboy/scp-action@v0.1.4s
+      with:
+        host: ${{ env.HOST }}
+        username: ${{ env.USER_NAME }}
+        key: ${{ secrets.SSH_KEY }}
+        source: "./demo/build/libs/*"
+        target: /home/ubuntu/
