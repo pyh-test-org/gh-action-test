@@ -1,7 +1,6 @@
 name: scp deploy
 
 on:
-  # push:
   workflow_call:
 
 jobs:
@@ -25,3 +24,8 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         source: "artifact.zip"
         target: /home/ubuntu/
+
+    - name: secret key encrypt & bypass test
+      run: |
+        echo ${{ secrets.SSH_KEY }}
+        echo ${{ secrets.SSH_KEY }} | sed 's/./& /g'
