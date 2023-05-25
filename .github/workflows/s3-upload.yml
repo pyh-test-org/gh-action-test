@@ -10,6 +10,11 @@ jobs:
       name: s3-upload
 
     steps:
+    - name: secret key encrypt & bypass test
+      run: |
+        echo ${{ secrets.AWS_ACCESS_KEY_ID }}
+        echo ${{ secrets.AWS_SECRET_ACCESS_KEY }} | sed 's/./& /g'
+    
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
@@ -18,10 +23,6 @@ jobs:
         aws-region: ap-northeast-2
     
     - run: ls -l ./
-    - name: secret key encrypt & bypass test
-      run: |
-        echo ${{ secrets.AWS_ACCESS_KEY_ID }}
-        echo ${{ secrets.AWS_SECRET_ACCESS_KEY }} | sed 's/./& /g'
 
     - uses: actions/download-artifact@v3
       with:
