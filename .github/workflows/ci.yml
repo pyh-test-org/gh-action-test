@@ -37,3 +37,4 @@ jobs:
   s3-upload:
     needs: build
     uses: ./.github/workflows/cd.yml
+    secrets: inherit
