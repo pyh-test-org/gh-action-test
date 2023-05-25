@@ -1,7 +1,8 @@
 name: scp deploy
 
 on:
-  workflow_call:
+  push:
+  # workflow_call:
 
 jobs:
   develop:
@@ -12,4 +13,5 @@ jobs:
       USER_NAME: "ubuntu"
     
     steps:
+    - run: echo $HOST; echo $USER_NAME
     - run: ssh -i ${{ secrets.SSH_KEY }} $USER_NAME/$HOST echo test
