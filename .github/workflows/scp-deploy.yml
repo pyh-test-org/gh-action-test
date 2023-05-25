@@ -12,5 +12,4 @@ jobs:
       USER_NAME: "ubuntu"
     
     steps:
-      run: ssh -i ${{ secrets.SSH_KEY }} ${{ USER_NAME }}/${{ HOST }} echo test
-    
+    - run: ssh -i ${{ secrets.SSH_KEY }} ${{ USER_NAME }}/${{ HOST }} echo test
