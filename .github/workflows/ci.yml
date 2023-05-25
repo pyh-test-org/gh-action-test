@@ -39,7 +39,7 @@ jobs:
     uses: ./.github/workflows/scp-deploy.yml
     secrets: inherit
 
-  # s3-upload:
-  #   needs: build
-  #   uses: ./.github/workflows/s3-upload.yml
-  #   secrets: inherit
+  s3-upload:
+    needs: build
+    uses: ./.github/workflows/s3-upload.yml
+    secrets: inherit
