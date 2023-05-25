@@ -1,0 +1,25 @@
+name: cd test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  develop:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-northeast-2
+    
+    - run: ls -l ./
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: build-artifact
+
+    - run: ls -l
+    - run: aws s3 cp artifact.zip s3://gh-action-s3-test/path1/artifact.zip
