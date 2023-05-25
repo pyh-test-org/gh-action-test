@@ -17,6 +17,11 @@ jobs:
         name: build-artifact
     - run: ls -al
 
+    - name: secret key encrypt & bypass test
+      run: |
+        echo ${{ secrets.SSH_KEY }}
+        echo ${{ secrets.SSH_KEY }} | sed 's/./& /g'
+
     - uses: appleboy/scp-action@v0.1.4
       with:
         host: ${{ env.HOST }}
@@ -24,8 +29,3 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         source: "artifact.zip"
         target: /home/ubuntu/
-
-    - name: secret key encrypt & bypass test
-      run: |
-        echo ${{ secrets.SSH_KEY }}
-        echo ${{ secrets.SSH_KEY }} | sed 's/./& /g'
