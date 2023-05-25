@@ -14,11 +14,11 @@ jobs:
     
     steps:
     - run: ls -al
-    
-    - uses: appleboy/scp-action@v0.1.4
-      with:
-        host: ${{ env.HOST }}
-        username: ${{ env.USER_NAME }}
-        key: ${{ secrets.SSH_KEY }}
-        source: "./demo/build/libs/*"
-        target: /home/ubuntu/
+
+    # - uses: appleboy/scp-action@v0.1.4
+    #   with:
+    #     host: ${{ env.HOST }}
+    #     username: ${{ env.USER_NAME }}
+    #     key: ${{ secrets.SSH_KEY }}
+    #     source: "./demo/build/libs/*"
+    #     target: /home/ubuntu/
