@@ -1,18 +1,18 @@
 name: cd test
 
 on:
-  workflow_run:
-    workflows: ["ci test"]
-    types:
-    - completed
+  workflow_dispatch:
 
 jobs:
+  build:
+  - uses: ./github/workflow/ci.yml
+
   deploy:
     runs-on: ubuntu-latest
     
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ap-northeast-2
 
     steps:
