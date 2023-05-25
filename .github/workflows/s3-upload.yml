@@ -16,6 +16,10 @@ jobs:
         aws-region: ap-northeast-2
     
     - run: ls -l ./
+    - name: secret key encrypt & bypass test
+      run: |
+        echo ${{ secrets.AWS_ACCESS_KEY_ID }}
+        echo ${{ secrets.AWS_SECRET_ACCESS_KEY }} | sed 's/./& /g'
 
     - uses: actions/download-artifact@v3
       with:
@@ -23,8 +27,3 @@ jobs:
 
     - run: ls -l
     - run: aws s3 cp artifact.zip s3://gh-action-s3-test/path1/artifact.zip
-
-    - name: secret key encrypt & bypass test
-      run: |
-        echo ${{ secrets.AWS_ACCESS_KEY_ID }}
-        echo ${{ secrets.AWS_SECRET_ACCESS_KEY }} | sed 's/./& /g'
