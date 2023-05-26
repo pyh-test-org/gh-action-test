@@ -40,7 +40,7 @@ jobs:
       BUCKET: gh-action-s3-upload-test # elasticbeanstalk-ap-northeast-2-016842365394
       APPLICATION: miricanvas-api # miricanvas-api (변경해서 테스트)
       ENVIRONMENT: yhpark01-test-develop  # miricanvas-api-staging (변경해서 테스트)
-      FILENAME: artifact-${{ githun.ref_name }}-${{ github.run_number }}.zip  # miricanvas-api-staging-${bamboo.deploy.release}--${bamboo.buildResultKey}.zip (변경해서 테스트)
+      FILENAME: artifact-${{ github.ref_name }}-${{ github.run_number }}.zip  # miricanvas-api-staging-${bamboo.deploy.release}--${bamboo.buildResultKey}.zip (변경해서 테스트)
       BUCKET_FOLDER_PATH: path1
 
     steps:
