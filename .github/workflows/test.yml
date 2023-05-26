@@ -1,0 +1,12 @@
+name: test in gh action
+on: push
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: comment test in github action
+    - run: |
+      echo "hi"
+      # this is comment
