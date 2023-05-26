@@ -1,5 +1,5 @@
 name: check default gh var
-on: push
+on: workflow_dispatch
 jobs:
   default_var:
     runs-on: ubuntu-latest 
