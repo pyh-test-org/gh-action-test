@@ -12,3 +12,7 @@ jobs:
       FILENAME: artifact.zip  # miricanvas-api-staging-${bamboo.deploy.release}--${bamboo.buildResultKey}.zip (변경해서 테스트)
       OBJECT_KEY: ${{ env.FILENAME }} # api/staging/${FILENAME} (변경해서 테스트)
       S3_URL: s3://${BUCKET}/${OBJECT_KEY}
+    
+    steps:
+    - name: env
+      run: echo $OBJECT_KEY
