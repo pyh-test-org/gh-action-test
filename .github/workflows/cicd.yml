@@ -45,9 +45,6 @@ jobs:
       S3_URL: s3://${BUCKET}/${OBJECT_KEY}
 
     steps:
-      run: echo $OBJECT_KEY
-
-    steps:
     - name: comment test in github action
     - run: |
         aws elasticbeanstalk create-application-version \
