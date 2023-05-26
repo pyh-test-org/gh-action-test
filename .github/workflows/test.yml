@@ -5,4 +5,6 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "test"
+    - run: |
+        echo "gh_repo: ${{ github.repository }}"
+        echo "gh_repo_owner: ${{ github.repository_owner }}"
