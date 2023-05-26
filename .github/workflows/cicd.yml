@@ -57,7 +57,7 @@ jobs:
         name: build-artifact
 
     - name: S3 uplaod
-      run: aws s3 artifact.zip cp s3://${{ env.BUCKET }}/${{ env.OBJECT_KEY }}/${{ env.FILENAME }}
+      run: aws s3 artifact.zip cp s3://${{ env.BUCKET }}/${{ env.BUCKET_FOLDER_PATH }}/${{ env.FILENAME }}
 
     - name: aws eb deploy test
       run: |
