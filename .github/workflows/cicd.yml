@@ -42,7 +42,6 @@ jobs:
       ENVIRONMENT: yhpark01-test-develop  # miricanvas-api-staging (변경해서 테스트)
       FILENAME: artifact-${{ github.run_number }}.zip  # miricanvas-api-staging-${bamboo.deploy.release}--${bamboo.buildResultKey}.zip (변경해서 테스트)
       BUCKET_FOLDER_PATH: path1
-      # S3_URL: s3://${BUCKET}/${OBJECT_KEY}
 
     steps:
     - name: set aws credential
@@ -65,7 +64,7 @@ jobs:
         aws elasticbeanstalk create-application-version \
           --application-name ${{ env.APPLICATION }} \
           --version-label ${{ env.FILENAME }} \
-          --source-bundle S3Bucket="${{ env.BUCKET }}",S3Key="${{ env.OBJECT_KEY }}"
+          --source-bundle S3Bucket="${{ env.BUCKET }}",S3Key="${{ env.BUCKET_FOLDER_PATH }}/${{ env.FILENAME }}"
 
         aws elasticbeanstalk update-environment \
           --application-name ${{ env.APPLICATION }} \
