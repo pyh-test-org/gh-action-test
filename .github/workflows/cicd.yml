@@ -41,7 +41,7 @@ jobs:
       APPLICATION: miricanvas-api # miricanvas-api (변경해서 테스트)
       ENVIRONMENT: yhpark01-test-develop  # miricanvas-api-staging (변경해서 테스트)
       FILENAME: artifact-${{ github.run_number }}.zip  # miricanvas-api-staging-${bamboo.deploy.release}--${bamboo.buildResultKey}.zip (변경해서 테스트)
-      OBJECT_KEY: path1
+      BUCKET_FOLDER_PATH: path1
       # S3_URL: s3://${BUCKET}/${OBJECT_KEY}
 
     steps:
