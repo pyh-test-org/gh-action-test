@@ -1,0 +1,5 @@
+name: check default gh var
+jobs:
+  runs-on: ubuntu-latest 
+  steps:
+  - run: echo ${{ github.run_number }}
