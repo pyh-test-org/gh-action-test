@@ -1,4 +1,5 @@
 name: check default gh var
+on: push
 jobs:
   runs-on: ubuntu-latest 
   steps:
