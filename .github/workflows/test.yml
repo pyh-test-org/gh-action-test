@@ -6,13 +6,5 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      BUCKET: gh-action-s3-test # elasticbeanstalk-ap-northeast-2-016842365394
-      APPLICATION: miricanvas-api # miricanvas-api (변경해서 테스트)
-      ENVIRONMENT: yhpark01-test-develop  # miricanvas-api-staging (변경해서 테스트)
-      FILENAME: artifact.zip  # miricanvas-api-staging-${bamboo.deploy.release}--${bamboo.buildResultKey}.zip (변경해서 테스트)
-      OBJECT_KEY: ${{ .env.FILENAME }} # api/staging/${FILENAME} (변경해서 테스트)
-      # S3_URL: s3://${BUCKET}/${OBJECT_KEY}
-    
-    steps:
-    - name: env
-      run: echo $OBJECT_KEY
+	    key1: value1
+	    key2: ${{ env.key1 }}
