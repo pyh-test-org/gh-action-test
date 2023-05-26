@@ -12,4 +12,4 @@ jobs:
       env:
         key2: ${{ env.key1 }}
 
-    - run: echo $key2
+      - run: echo $key2
