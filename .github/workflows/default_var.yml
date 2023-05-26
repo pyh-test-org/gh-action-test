@@ -1,6 +1,7 @@
 name: check default gh var
 on: push
 jobs:
-  runs-on: ubuntu-latest 
-  steps:
-  - run: echo ${{ github.run_number }}
+  default_var:
+    runs-on: ubuntu-latest 
+    steps:
+    - run: echo ${{ github.run_number }}
