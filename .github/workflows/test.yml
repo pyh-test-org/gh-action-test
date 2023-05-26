@@ -7,6 +7,6 @@ jobs:
 
     steps:
     - name: comment test in github action
-    - run: |
+      run: |
         echo "hi"
         # this is comment
