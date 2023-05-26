@@ -1,13 +1,14 @@
 name: test in gh action
 on: workflow_dispatch
 
+env:
+  key1: value1
+  key2: ${{ env.key1 }}
+
 jobs:
   Test:
     runs-on: ubuntu-latest
 
-    env:
-	    key1: value1
-	    key2: ${{ env.key1 }}
 
     steps:
     - run: echo $key2
