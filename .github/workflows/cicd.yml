@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     env:
-      BUCKET: gh-action-s3-test # elasticbeanstalk-ap-northeast-2-016842365394
+      BUCKET: gh-action-s3-upload-test # elasticbeanstalk-ap-northeast-2-016842365394
       APPLICATION: miricanvas-api # miricanvas-api (변경해서 테스트)
       ENVIRONMENT: yhpark01-test-develop  # miricanvas-api-staging (변경해서 테스트)
       FILENAME: artifact-${{ github.run_number }}.zip  # miricanvas-api-staging-${bamboo.deploy.release}--${bamboo.buildResultKey}.zip (변경해서 테스트)
