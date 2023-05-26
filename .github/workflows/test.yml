@@ -8,5 +8,5 @@ jobs:
     steps:
     - name: comment test in github action
     - run: |
-      echo "hi"
-      # this is comment
+        echo "hi"
+        # this is comment
