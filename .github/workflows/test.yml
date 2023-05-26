@@ -1,5 +1,5 @@
 name: test in gh action
-on: push
+on: workflow_dispatch
 
 jobs:
   Test:
@@ -10,8 +10,8 @@ jobs:
       APPLICATION: miricanvas-api # miricanvas-api (변경해서 테스트)
       ENVIRONMENT: yhpark01-test-develop  # miricanvas-api-staging (변경해서 테스트)
       FILENAME: artifact.zip  # miricanvas-api-staging-${bamboo.deploy.release}--${bamboo.buildResultKey}.zip (변경해서 테스트)
-      OBJECT_KEY: ${{ env.FILENAME }} # api/staging/${FILENAME} (변경해서 테스트)
-      S3_URL: s3://${BUCKET}/${OBJECT_KEY}
+      OBJECT_KEY: ${{ .env.FILENAME }} # api/staging/${FILENAME} (변경해서 테스트)
+      # S3_URL: s3://${BUCKET}/${OBJECT_KEY}
     
     steps:
     - name: env
