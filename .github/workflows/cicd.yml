@@ -46,7 +46,7 @@ jobs:
 
     steps:
     - name: comment test in github action
-    - run: |
+      run: |
         aws elasticbeanstalk create-application-version \
           --application-name ${APPLICATION} \
           --version-label ${FILENAME} \
