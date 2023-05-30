@@ -39,7 +39,7 @@ jobs:
     environment: develop-test
     concurrency: 
       group: develop-concurrency-test
-      cancel-in-progress: true
+      # cancel-in-progress: true
 
     env:
       BUCKET: gh-action-s3-upload-test
