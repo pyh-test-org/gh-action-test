@@ -37,10 +37,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     env:
-      BUCKET: gh-action-s3-upload-test # elasticbeanstalk-ap-northeast-2-016842365394
-      APPLICATION: miricanvas-api # miricanvas-api (변경해서 테스트)
-      ENVIRONMENT: yhpark01-test-develop  # miricanvas-api-staging (변경해서 테스트)
-      FILENAME: artifact-${{ github.ref_name }}-${{ github.run_number }}.zip  # miricanvas-api-staging-${bamboo.deploy.release}--${bamboo.buildResultKey}.zip (변경해서 테스트)
+      BUCKET: gh-action-s3-upload-test
+      APPLICATION: miricanvas-api 
+      ENVIRONMENT: yhpark01-test-develop
+      FILENAME: artifact-${{ github.ref_name }}-${{ github.run_number }}.zip
       BUCKET_FOLDER_PATH: path1
 
     steps:
@@ -70,27 +70,3 @@ jobs:
           --application-name ${{ env.APPLICATION }} \
           --environment-name ${{ env.ENVIRONMENT }} \
           --version-label ${{ env.FILENAME }}
-
-
-# echo "aws s3 cp .temp/miricanvas-api.zip ${S3_URL}"
-# aws s3 cp .temp/miricanvas-api.zip ${S3_URL}
-
-# # create application version
-# echo "aws elasticbeanstalk create-application-version \
-#     --application-name ${APPLICATION} \
-#     --version-label ${FILENAME} \
-#     --source-bundle S3Bucket=${BUCKET},S3Key=${OBJECT_KEY}"
-# aws elasticbeanstalk create-application-version \
-#     --application-name ${APPLICATION} \
-#     --version-label ${FILENAME} \
-#     --source-bundle S3Bucket="${BUCKET}",S3Key="${OBJECT_KEY}"
-
-# # application version change
-# echo "aws elasticbeanstalk update-environment \
-#     --application-name ${APPLICATION} \
-#     --environment-name ${ENVIRONMENT} \
-#     --version-label ${FILENAME}"
-# aws elasticbeanstalk update-environment \
-#     --application-name ${APPLICATION} \
-#     --environment-name ${ENVIRONMENT} \
-#     --version-label ${FILENAME}
