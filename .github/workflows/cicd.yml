@@ -51,7 +51,7 @@ jobs:
       with:
         host: ${{ env.HOST }}
         username: ${{ env.USER_NAME }}
-        key: ${{ secrets.SSH_PRIVATE__KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: artifact.zip
         target: /home/ubuntu/
 
@@ -60,5 +60,5 @@ jobs:
       with:
         host: ${{ env.HOST }}
         username: ${{ env.USER_NAME }}
-        key: ${{ secrets.SSH_PRIVATE__KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: /home/ubuntu/test.sh
