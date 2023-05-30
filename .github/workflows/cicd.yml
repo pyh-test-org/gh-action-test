@@ -1,4 +1,4 @@
-name: aws eb cicd test
+name: aws scp & ssh test
 on: workflow_dispatch
 
 jobs:
