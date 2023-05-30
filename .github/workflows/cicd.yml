@@ -37,7 +37,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment: develop-test
-    concurrency: develop-concurrency-test
+    concurrency: 
+      group: develop-concurrency-test
+      cancel-in-progress: true
 
     env:
       BUCKET: gh-action-s3-upload-test
