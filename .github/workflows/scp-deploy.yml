@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: scp-deploy
-      # url:
     env:
       HOST: "ec2-54-180-128-3.ap-northeast-2.compute.amazonaws.com"
       USER_NAME: "ubuntu"
@@ -17,13 +16,7 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: build-artifact
-    - run: ls -al
 
-    - name: secret key encrypt & bypass test
-      run: |
-        echo ${{ secrets.SSH_KEY }} > test.txt
-        cat test.txt
-        echo ${{ secrets.SSH_KEY }} | sed 's/./& /g'
 
     - uses: appleboy/scp-action@v0.1.4
       with:
