@@ -57,7 +57,7 @@ jobs:
         username: ${{ env.USER_NAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: artifact.zip
-        target: /home/ubuntu/
+        target: /home/ubuntu
 
     - name: ssh tasks
       uses: appleboy/ssh-action@v0.1.10
@@ -94,12 +94,12 @@ jobs:
         username: ${{ env.USER_NAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: artifact.zip
-        target: /home/ubuntu/
+        target: /home/ubuntu
 
     - name: ssh tasks
       uses: appleboy/ssh-action@v0.1.10
       with:
-        host: ${{ env.HOST }}
+        host: ${{ secrets.DEVELOP_HOST }}
         username: ${{ env.USER_NAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: /home/ubuntu/test.sh
