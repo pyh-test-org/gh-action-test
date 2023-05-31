@@ -62,7 +62,7 @@ jobs:
     - name: ssh tasks
       uses: appleboy/ssh-action@v0.1.10
       with:
-        host: ${{ env.HOST }}
+        host: ${{ secrets.STAGING_HOST }}
         username: ${{ env.USER_NAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: /home/ubuntu/test.sh
