@@ -78,7 +78,6 @@ jobs:
     concurrency:
       group: develop-test
       cancel-in-progress: true
-    secrets: inherit
     env:
       USER_NAME: ubuntu
 
