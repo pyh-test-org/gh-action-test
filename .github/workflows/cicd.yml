@@ -14,7 +14,7 @@ jobs:
       - run: NAME=test >> $GITHUB_ENV
       - run: echo ${{ env.NAME }}
 
-      - run: GITHUB_ENV test
+      - name: GITHUB_ENV test
         run: |
           NAME2=test >> $GITHUB_ENV
           echo ${{ env.NAME2 }}
