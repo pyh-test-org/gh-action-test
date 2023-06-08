@@ -9,10 +9,15 @@ jobs:
     steps:
       - name: run test
         run: |
+          cat << EOF > test.sh
           echo This will happen first
           ls imaginary-filename
           echo This will happen second
 
+      - run: cat test.sh
+      - run: chmod u+x test.sh
+      - run: ls -l test.sh
+      - run: ./test.sh
       - run: echo success
 
   # print-output:
