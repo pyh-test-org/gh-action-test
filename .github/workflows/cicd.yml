@@ -12,13 +12,11 @@ jobs:
         run: echo 'apk-filename=test' >> $GITHUB_OUTPUT
       - run: echo $GITHUB_OUTPUT
       - run: |
-          set -ex
           echo "NAME=test" >> $GITHUB_ENV
       - run: echo ${{ env.NAME }}
 
       - name: GITHUB_ENV test
         run: |
-          set -ex
           echo "NAME2=test2"  >> $GITHUB_ENV
           echo ${{ env.NAME2 }}
 
