@@ -13,13 +13,13 @@ jobs:
       - run: echo $GITHUB_OUTPUT
       - run: |
           set -ex
-          NAME=test >> $GITHUB_ENV
+          echo "NAME=test" >> $GITHUB_ENV
       - run: echo ${{ env.NAME }}
 
       - name: GITHUB_ENV test
         run: |
           set -ex
-          NAME2=test >> $GITHUB_ENV
+          echo "NAME2=test2"  >> $GITHUB_ENV
           echo ${{ env.NAME2 }}
 
   print-output:
