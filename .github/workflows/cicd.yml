@@ -7,29 +7,23 @@ jobs:
     outputs:
       apk-name: ${{ steps.write-step.outputs.apk-filename }}
     steps:
-      - name: Write outputs to step
-        id: write-step
-        run: echo 'apk-filename=test' >> $GITHUB_OUTPUT
-      - run: echo $GITHUB_OUTPUT
-      - run: echo "NAME=test" >> $GITHUB_ENV
-      
-      - name: print $GITHUB_ENV no set
-        run: echo ${{ env.NAME }}
-
-      - name: GITHUB_ENV test
+      - name: run test
         run: |
-          echo "NAME2=test2"  >> $GITHUB_ENV
-          echo ${{ env.NAME2 }}
+          echo This will happen first
+          ls imaginary-filename
+          echo This will happen second
 
-  print-output:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print Output
-        run: echo "${{ needs.build.outputs.apk-name }}"
+      - run: echo success
 
-      - name: GITHUB_ENV test
-        run: echo ${{ env.NAME }}
+  # print-output:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Print Output
+  #       run: echo "${{ needs.build.outputs.apk-name }}"
+
+  #     - name: GITHUB_ENV test
+  #       run: echo ${{ env.NAME }}
 
   # build:
   #   runs-on: ubuntu-latest
