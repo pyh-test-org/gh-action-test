@@ -11,9 +11,10 @@ jobs:
         id: write-step
         run: echo 'apk-filename=test' >> $GITHUB_OUTPUT
       - run: echo $GITHUB_OUTPUT
-      - run: |
-          echo "NAME=test" >> $GITHUB_ENV
-      - run: echo ${{ env.NAME }}
+      - run: echo "NAME=test" >> $GITHUB_ENV
+      
+      - name: print $GITHUB_ENV no set
+        run: echo ${{ env.NAME }}
 
       - name: GITHUB_ENV test
         run: |
