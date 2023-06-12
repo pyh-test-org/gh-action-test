@@ -13,6 +13,7 @@ jobs:
       - run: echo This will happen secon
         if: env.NUMBER == 1
       - run: echo "continue-on-error"
+        if: ${{ always() }}
 
   # build:
   #   runs-on: ubuntu-latest
