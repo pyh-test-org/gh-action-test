@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: random
-        run: if [[ $(($2 % 2)) == 0 ]]; then exit 0; else exit 1; fi
+        run: if [[ $((2 % 2)) == 0 ]]; then exit 0; else exit 1; fi
       - if: ${{ always() }}
         run: echo ${{ steps.random.outcome }}
 
