@@ -8,27 +8,10 @@ jobs:
       apk-name: ${{ steps.write-step.outputs.apk-filename }}
     steps:
       - name: run test
-        run: |
-          cat << EOF > test.sh
-          echo This will happen first
-          ls imaginary-filename
-          echo This will happen second
-
-      - run: cat test.sh
-      - run: chmod u+x test.sh
-      - run: ls -l test.sh
-      - run: ./test.sh
-      - run: echo success
-
-  # print-output:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Print Output
-  #       run: echo "${{ needs.build.outputs.apk-name }}"
-
-  #     - name: GITHUB_ENV test
-  #       run: echo ${{ env.NAME }}
+        run: echo This will happen first
+      - run: ls imaginary-filename
+        continue-on-error: true
+      - run: echo This will happen secon
 
   # build:
   #   runs-on: ubuntu-latest
