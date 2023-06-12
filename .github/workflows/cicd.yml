@@ -5,13 +5,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - id: gen-num
-        run: echo "$(($RANDOM % 2))" >> $GITHUB_ENV
+      - run: echo "NUMBER=$(($RANDOM % 2))" >> $GITHUB_ENV
       - run: ls imaginary-filename
-        if: env.gen-num == 0
+        if: env.NUMBER == 0
         continue-on-error: true
       - run: echo This will happen secon
-        if: env.gen-num == 1
+        if: env.NUMBER == 1
 
   # build:
   #   runs-on: ubuntu-latest
