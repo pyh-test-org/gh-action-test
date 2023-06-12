@@ -1,19 +1,14 @@
-name: outputs test
+name: Our Steps
 on: workflow_dispatch
 
 jobs:
-  build:
+  notify:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "NUMBER=0" >> $GITHUB_ENV
-      - run: echo $NUMBER
-      - run: ls imaginary-filename
-        if: env.NUMBER == 0
-        continue-on-error: true
-      - run: echo This will happen secon
-        if: env.NUMBER == 1
-      - run: echo "continue-on-error"
-        if: ${{ always() }}
+      - id: random
+        run: if [[ $(($RANDOM % 2)) == 0 ]]; then exit 0; else exit 1; fi
+      - if: ${{ always() }}
+        run: echo ${{ steps.random.outcome }}
 
   # build:
   #   runs-on: ubuntu-latest
