@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "NUMBER=$(($RANDOM % 2))" >> $GITHUB_ENV
+      - run: echo $NUMBER
       - run: ls imaginary-filename
         if: env.NUMBER == 0
         continue-on-error: true
