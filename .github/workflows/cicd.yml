@@ -4,14 +4,14 @@ on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      apk-name: ${{ steps.write-step.outputs.apk-filename }}
     steps:
-      - name: run test
-        run: echo This will happen first
+      - id: gen-num
+        run: echo "$(($RANDOM % 2))" >> $GITHUB_ENV
       - run: ls imaginary-filename
+        if: env.gen-num == 0
         continue-on-error: true
       - run: echo This will happen secon
+        if: env.gen-num == 1
 
   # build:
   #   runs-on: ubuntu-latest
