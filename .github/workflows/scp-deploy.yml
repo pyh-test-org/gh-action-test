@@ -14,7 +14,9 @@ jobs:
       
       - run: cat gh_env_check.sh
       
-      - run: chmod u+x gh_env_check.sh
+      - run: |
+          chmod u+x gh_env_check.sh
+          ./gh_env_check.sh
       
       - run: ls
       
