@@ -10,5 +10,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: check gh action env variables
-        run: env
+      - uses: actions/checkout@v3
+      
+      - run: cat gh_env_check.sh
+      
+      - run: chmod u+x gh_env_check.sh
+      
+      - run: ls
+      
+      - run: cat deploy.yml
