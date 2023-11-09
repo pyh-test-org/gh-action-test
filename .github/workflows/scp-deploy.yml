@@ -3,8 +3,11 @@ name: check gh action env variables
 on:
   workflow_dispatch:
 
+env:
+  VARIABLE_1: test1 
+
 jobs:
-  ci:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: check gh action env variables
