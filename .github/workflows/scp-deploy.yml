@@ -15,5 +15,5 @@ jobs:
       - run: env
       
       - run: |
-          cat gh_env_check.sh | sed -i "s/${{ '${{ env.VARIABLE_1 }}' }}/test/g"
+          cat gh_env_check.sh | sed -i "s/${{ '\${{ env.VARIABLE_1 }}' }}/test/g"
           cat gh_env_check.sh
