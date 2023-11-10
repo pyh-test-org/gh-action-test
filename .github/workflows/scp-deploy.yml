@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  VARIABLE_1: test1 
+  VARIABLE_1: test
 
 jobs:
   test:
@@ -14,12 +14,4 @@ jobs:
 
       - run: env
       
-      - run: cat gh_env_check.sh
-      
-      - run: |
-          chmod u+x gh_env_check.sh
-          ./gh_env_check.sh
-      
-      - run: ls
-      
-      - run: cat deploy.yml
+      - run: cat gh_env_check.sh | sed "s/'${{ env.VARIABLE_1 }}'/test/g"
