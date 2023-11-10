@@ -23,4 +23,4 @@ jobs:
 
       # - run: cat gh_env_check.sh | sed "s/${{ '\${{ env.VARIABLE_1 }}' }}/test/g"
       - run: echo ${{ 'default_value' }}
-      - run: echo ${{ test || 'default_value' }}
+      - run: echo ${{ env.test || 'default_value' }}
