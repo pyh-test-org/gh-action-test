@@ -13,7 +13,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - run: env
-      
+
+      - run: ls
+
       - run: |
           cat gh_env_check.sh | sed -i "s/${{ '\${{ env.VARIABLE_1 }}' }}/test/g"
           cat gh_env_check.sh
