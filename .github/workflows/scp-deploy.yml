@@ -4,23 +4,17 @@ on:
   workflow_dispatch:
 
 env:
-  VARIABLE_1: test
-  VARIABLE_2: test1
-  VARIABLE_3: test2
-  VARIABLE_4: test3
+  GLOBAL_VARIABLE_1: test
+  GLOBAL_VARIABLE_2: test1
 
 jobs:
-  test:
+  env_check1:
     runs-on: ubuntu-latest
+    env:
+      JOB_VARIABLE: local
     steps:
       - uses: actions/checkout@v3
-
       - run: env
-
-      - run: ls
-
-      # - run: cat gh_env_check.sh
-
-      # - run: cat gh_env_check.sh | sed "s/${{ '\${{ env.VARIABLE_1 }}' }}/test/g"
-      - run: echo ${{ 'default_value' }}
-      - run: echo ${{ env.test || 'default_value' }}
+  
+  # env_check2:
+  #   runs-on: ubuntu-latest
