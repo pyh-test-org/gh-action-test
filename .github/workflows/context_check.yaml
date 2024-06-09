@@ -1,5 +1,5 @@
 name: context check
-run-name: 'number: ${{ github.run_number }}'
+run-name: number: ${{ github.run_number }}
 on: workflow_dispatch
 
 jobs:
