@@ -1,0 +1,8 @@
+name: c
+run-name: 'number: ${{ github.run_number }}'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - run: ${{ github }}
