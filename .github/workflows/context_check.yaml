@@ -1,4 +1,4 @@
-name: c
+name: context check
 run-name: 'number: ${{ github.run_number }}'
 
 jobs:
