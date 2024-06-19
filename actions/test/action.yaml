@@ -23,7 +23,7 @@ runs:
 
       # Loop through each required input and check if it is provided
       for input in "${required_inputs[@]}"; do
-        if [ -z "${{ inputs[$input] }}" ]; then
+        if [ -z "${{ inputs.$input }}" ]; then
           echo "Error: $input input is required"
           exit 1
         fi
