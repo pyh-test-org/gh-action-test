@@ -5,10 +5,8 @@ jobs:
   shell_func_test:
     runs-on: ubuntu-latest
     steps:
-      - name: shell func test
-        run: |
-          test() {
-            echo "hello"
-          }
-
-          test
+      - name: checkout the code
+        uses: actions/checkout@v4
+  
+      - name: custom action test
+        uses: ./actions/test

@@ -1,0 +1,14 @@
+name: test
+author: yhpark01
+description: 'Use test module in github action'
+
+runs:
+  using: "composite"
+  steps:
+  - name: shell script function test
+    run: |
+      test() {
+        echo "hello"
+      }
+    
+      test
