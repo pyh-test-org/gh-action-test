@@ -3,7 +3,13 @@ author: yhpark01
 description: 'Use test module in github action'
 inputs:
   VERSION:
-    description: test version
+    description: 'Test version'
+    required: true
+  ENVIRONMENT:
+    description: 'Deployment environment'
+    required: true
+  APP_NAME:
+    description: 'Application name'
     required: true
 
 runs:
@@ -12,14 +18,22 @@ runs:
   - name: shell script function test
     shell: bash
     run: |
-      if [ -z "${{ inputs.VERSION }}" ]; then
-        echo "Error: VERSION input is required"
-        exit 1
-      fi
-      
+      # Define required inputs
+      required_inputs=("VERSION" "ENVIRONMENT" "APP_NAME")
+
+      # Loop through each required input and check if it is provided
+      for input in "${required_inputs[@]}"; do
+        if [ -z "${{ inputs[$input] }}" ]; then
+          echo "Error: $input input is required"
+          exit 1
+        fi
+      done
+
       test() {
         echo "hello"
-        echo ${{ inputs.VERSION }}
+        echo "VERSION: ${{ inputs.VERSION }}"
+        echo "ENVIRONMENT: ${{ inputs.ENVIRONMENT }}"
+        echo "APP_NAME: ${{ inputs.APP_NAME }}"
       }
     
       test
