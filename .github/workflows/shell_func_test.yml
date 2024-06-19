@@ -1,0 +1,14 @@
+name: 쉘 스크립트 function 사용 확인
+on: workflow_dispatch
+
+jobs:
+  shell_func_test:
+    runs_on: ubuntu-latest
+    steps:
+      - name: shell func test
+        run: |
+          test() {
+            echo "hello"
+          }
+
+          test
