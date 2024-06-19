@@ -15,20 +15,25 @@ inputs:
 runs:
   using: "composite"
   steps:
+  - name: Check required inputs
+    shell: bash
+    run: |
+      check_input() {
+        local input_name=$1
+        local input_value=$2
+        if [ -z "$input_value" ]; then
+          echo "Error: $input_name input is required"
+          exit 1
+        fi
+      }
+
+      check_input "VERSION" "${{ inputs.VERSION }}"
+      check_input "ENVIRONMENT" "${{ inputs.ENVIRONMENT }}"
+      check_input "APP_NAME" "${{ inputs.APP_NAME }}"
+
   - name: shell script function test
     shell: bash
     run: |
-      # Define required inputs
-      required_inputs=("VERSION" "ENVIRONMENT" "APP_NAME")
-
-      # Loop through each required input and check if it is provided
-      for input in "${required_inputs[@]}"; do
-        if [ -z "${{ inputs.$input }}" ]; then
-          echo "Error: $input input is required"
-          exit 1
-        fi
-      done
-
       test() {
         echo "hello"
         echo "VERSION: ${{ inputs.VERSION }}"
