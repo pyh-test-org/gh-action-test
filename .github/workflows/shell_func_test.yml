@@ -10,5 +10,3 @@ jobs:
   
       - name: custom action test
         uses: ./actions/test
-        with:
-          VERSION: test

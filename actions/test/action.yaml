@@ -12,6 +12,11 @@ runs:
   - name: shell script function test
     shell: bash
     run: |
+      if [ -z "${{ inputs.VERSION }}" ]; then
+        echo "Error: VERSION input is required"
+        exit 1
+      fi
+      
       test() {
         echo "hello"
         echo ${{ inputs.VERSION }}
