@@ -4,7 +4,7 @@ description: 'Use test module in github action'
 inputs:
   VERSION:
     description: test version
-    require: true
+    required: true
 
 runs:
   using: "composite"
