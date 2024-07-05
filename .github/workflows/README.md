@@ -1,1 +1,0 @@
-[![aws scp & ssh test](https://github.com/pyh-test-org/gh-action-test/actions/workflows/cicd.yml/badge.svg?branch=main)](https://github.com/pyh-test-org/gh-action-test/actions/workflows/cicd.yml)

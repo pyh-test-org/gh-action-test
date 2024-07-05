@@ -1,0 +1,19 @@
+name: timeout test
+on:
+  workflow_dispatch
+
+jobs:
+  timeout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    
+    steps:
+    - name: sleep 100
+      run: echo "sleep 100..."; sleep 100
+
+    - name: Run when canceled
+      if: ${{ cancelled() }}
+      run: echo cancel
+
+
+  

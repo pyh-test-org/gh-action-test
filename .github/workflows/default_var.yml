@@ -1,7 +1,0 @@
-name: check default gh var
-on: workflow_dispatch
-jobs:
-  default_var:
-    runs-on: ubuntu-latest 
-    steps:
-    - run: echo ${{ github.run_number }}
