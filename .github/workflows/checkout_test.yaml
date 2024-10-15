@@ -21,6 +21,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: pyh-test-org/github-actions
-        sparse-checkout: my-app
+        sparse-checkout: |
+          my-app
     - name: check checkout
       run: ls
