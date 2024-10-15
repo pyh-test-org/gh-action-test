@@ -17,10 +17,10 @@ jobs:
     - name: check checkout
       run: ls
 
-    - name: remote repo single folder checkout
+    - name: remote repo sparse checkout
       uses: actions/checkout@v4
       with:
         repository: pyh-test-org/github-actions
-        sparse-checkout: myapp
-    - name: check local checkout
+        sparse-checkout: my-app
+    - name: check checkout
       run: ls
