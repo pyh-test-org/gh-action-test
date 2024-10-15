@@ -1,0 +1,26 @@
+name: checkout test
+on: workflow_dispatch
+
+jobs:
+  checkout_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: local repo checkout
+      uses: actions/checkout@v4
+    - name: check checkout
+      run: ls
+
+    - name: remote repo checkout
+      uses: actions/checkout@v4
+      with:
+        repository: pyh-test-org/github-actions
+    - name: check checkout
+      run: ls
+
+    - name: remote repo single folder checkout
+      uses: actions/checkout@v4
+      with:
+        repository: pyh-test-org/github-actions
+        sparse-checkout: myapp
+    - name: check local checkout
+      run: ls
